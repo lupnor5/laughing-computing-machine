@@ -1,4 +1,3 @@
-# create a dictionary containing the keys, to access to each char 0(1)
 def from_string_to_dictionary():
     dic_str = "0: +, 1: . , 2: ABC, 3: DEF, 4: GHI, 5: JKL, 6: MNO, 7: PQRS, 8: TUV, 9: WXYZ"
     dic_arr =  dic_str.replace(" ", "").split(',')
@@ -17,16 +16,19 @@ def rec(char_matrix, i, phrase, output):
             rec(char_matrix, i+1, phrase, output)
             phrase.pop()
 
-def keypadCombinations(str):
+def find_chars_to_combine(str):
     dict = from_string_to_dictionary() 
     input_arr = list(str)
     char_matrix = []
     for key in input_arr:
         char_matrix.append(dict[key]) 
+    return char_matrix
+
+def keypadCombinations(str):
+    char_matrix = find_chars_to_combine(str)
     output = []
     rec(char_matrix, 0, [], output)
     return output    
-
 
 print(
     keypadCombinations("374")
