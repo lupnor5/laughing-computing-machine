@@ -24,13 +24,13 @@ def find_chars_to_combine(str):
         char_matrix.append(dict[key]) 
     return char_matrix
 
-def keypadCombinations(str):
+def keypad_combinations(str):
     char_matrix = find_chars_to_combine(str)
     output = []
     rec(char_matrix, 0, [], output)
     return output    
 
 print(
-    keypadCombinations("374")
+    keypad_combinations("374")
 )
 
